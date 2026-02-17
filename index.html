@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MightyGreens – History & Innovations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #1a3a2a;
+      --green-mid:    #2d6a4f;
+      --green-vivid:  #52b788;
+      --green-light:  #b7e4c7;
+      --cream:        #f5f0e8;
+      --cream-dark:   #ede6d5;
+      --earth:        #8b6914;
+      --text-dark:    #1a1a1a;
+      --text-body:    #3a3a3a;
+      --text-muted:   #6b7a6b;
+      --radius:       4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--cream);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--green-deep);
+      color: var(--cream);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(82,183,136,.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(45,106,79,.35) 0%, transparent 55%);
+    }
+    header > * { position: relative; z-index: 1; }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: -.01em;
+      line-height: 1.1;
+      color: #fff;
+    }
+    header h1 span { color: var(--green-vivid); }
+
+    header p.sub {
+      margin-top: 1rem;
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      color: var(--green-light);
+      max-width: 680px;
+      margin-inline: auto;
+      font-weight: 300;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 1.8rem;
+      background: var(--green-vivid);
+      color: var(--green-deep);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 99px;
+    }
+
+    /* ─── NAV TABS ─── */
+    nav.tabs {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green-deep);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-bottom: 2px solid var(--green-mid);
+    }
+    nav.tabs a {
+      color: var(--green-light);
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border-bottom: 3px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav.tabs a:hover {
+      color: #fff;
+      border-bottom-color: var(--green-vivid);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: .6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 3.5rem;
+      line-height: 1.8;
+    }
+
+    /* ─── TIMELINE ─── */
+    #historia { background: var(--cream); }
+
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .5rem;
+      bottom: .5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green-vivid), var(--green-light));
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      animation: fadeSlide .5s ease forwards;
+    }
+    .tl-item:nth-child(1) { animation-delay: .1s; }
+    .tl-item:nth-child(2) { animation-delay: .2s; }
+    .tl-item:nth-child(3) { animation-delay: .3s; }
+    .tl-item:nth-child(4) { animation-delay: .4s; }
+    .tl-item:nth-child(5) { animation-delay: .5s; }
+    .tl-item:nth-child(6) { animation-delay: .6s; }
+    .tl-item:nth-child(7) { animation-delay: .7s; }
+
+    @keyframes fadeSlide {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -2.8rem;
+      top: .35rem;
+      width: 14px;
+      height: 14px;
+      background: var(--green-vivid);
+      border: 3px solid var(--cream);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--green-mid);
+    }
+
+    .tl-year {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--earth);
+      background: var(--cream-dark);
+      border: 1px solid #d6c99a;
+      padding: .2rem .75rem;
+      border-radius: 99px;
+      margin-bottom: .5rem;
+    }
+
+    .tl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: .5rem;
+    }
+
+    .tl-body {
+      font-size: .97rem;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+    .tl-body p + p { margin-top: .75rem; }
+
+    /* ─── INNOVATIONS ─── */
+    #inovacoes {
+      background: var(--green-deep);
+      max-width: 100%;
+      padding: 5rem 2rem;
+    }
+    #inovacoes > .inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #inovacoes .section-label { color: var(--green-light); }
+    #inovacoes .section-title { color: #fff; }
+    #inovacoes .section-intro { color: rgba(255,255,255,.65); }
+
+    .inov-category {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--green-vivid);
+      margin-bottom: 1.25rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(82,183,136,.3);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(82,183,136,.2);
+      border-radius: 8px;
+      padding: 1.4rem 1.5rem;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .card:hover {
+      background: rgba(82,183,136,.12);
+      border-color: var(--green-vivid);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: .75rem;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .5rem;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: .88rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+    }
+
+    /* ─── TEAM ─── */
+    #team {
+      background: var(--cream-dark);
+      max-width: 100%;
+      padding: 5rem 2rem;
+    }
+    #team > .inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #team .section-label { color: var(--green-mid); }
+    #team .section-title { color: var(--green-deep); }
+    #team .section-intro { color: var(--text-muted); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      background: var(--cream);
+      border: 1px solid rgba(45,106,79,.15);
+      border-radius: 10px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .team-card:hover {
+      box-shadow: 0 6px 24px rgba(26,58,42,.1);
+      transform: translateY(-3px);
+    }
+
+    .team-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .team-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--green-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-vivid);
+      flex-shrink: 0;
+    }
+
+    .team-meta { flex: 1; }
+
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1.2;
+      margin-bottom: .2rem;
+    }
+
+    .team-role {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+    }
+
+    .team-tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--green-light);
+      color: var(--green-deep);
+      padding: .15rem .6rem;
+      border-radius: 99px;
+      margin-top: .35rem;
+    }
+
+    .team-bio {
+      font-size: .9rem;
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+
+    .team-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--green-mid);
+      text-decoration: none;
+      border: 1px solid rgba(45,106,79,.3);
+      padding: .3rem .8rem;
+      border-radius: 99px;
+      align-self: flex-start;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .team-linkedin:hover {
+      background: var(--green-mid);
+      color: #fff;
+      border-color: var(--green-mid);
+    }
+    .team-linkedin svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 640px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111e16;
+      color: rgba(255,255,255,.35);
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+    }
+    footer strong { color: var(--green-vivid); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      nav.tabs a { padding: .75rem 1rem; font-size: .78rem; }
+      .timeline { padding-left: 1.75rem; }
+      .tl-dot { left: -2.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header>
+  <h1>Mighty<span>Greens</span></h1>
+  <p class="sub">From South America's first commercially operating controlled environment agriculture farm to the benchmark for mushrooms and microgreens in CEA</p>
+  <span class="badge">Urban Farm Modern Horticulture & Technology Ltd.</span>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<nav class="tabs">
+  <a href="#historia">History</a>
+  <a href="#inovacoes">Innovations</a>
+  <a href="#team">Team</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HISTÓRIA — TIMELINE
+════════════════════════════════════════════ -->
+<section id="historia">
+  <p class="section-label">Our journey</p>
+  <h2 class="section-title">MightyGreens – The Story of an Urban Tech Farm</h2>
+  <p class="section-intro">A timeline tracing the human motivation behind the project through to its consolidation as a CEA technology platform.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">2016 — Origin & founding</span>
+      <h3 class="tl-title">South America's first commercial CEA farm</h3>
+      <div class="tl-body">
+        <p>Urban Farm Modern Horticulture & Technology Ltd., trading as MightyGreens, was founded in 2016 in Rio de Janeiro as the first controlled environment agriculture (CEA) company operating commercially in South America.</p>
+        <p>The seed of the business was planted when two of the founders spent over a year witnessing a friend's daily struggle in Venezuela to access food and water — driving them to seek solutions for local production in controlled environments.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">2016 – 2019 — First generation</span>
+      <h3 class="tl-title">Microgreens at scale</h3>
+      <div class="tl-body">
+        <p>Between 2016 and 2019, MightyGreens developed a pioneering large-scale microgreens project, integrating cutting-edge agronomy, greenhouse technology, and CEA systems.</p>
+        <p>The initial units, operating in compact spaces, demonstrated that it was possible to grow ultra-young, nutrient-dense microgreens with significantly reduced water usage and zero pesticides in an urban environment.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">2018 – 2019 — Modular expansion</span>
+      <h3 class="tl-title">Vertical farms & container units</h3>
+      <div class="tl-body">
+        <p>The company evolved into modular vertical farms built inside shipping containers — true "plant data centers" — with precise control over light, temperature, humidity, and ventilation.</p>
+        <p>This model made it possible to install farms in dense urban areas and next to supermarkets, shortening the logistics chain and democratising access to fresh produce year-round.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">2020 – 2023 — New product line</span>
+      <h3 class="tl-title">Expanding into CEA mushroom production</h3>
+      <div class="tl-body">
+        <p>Building on the CEA expertise developed through microgreens, MightyGreens launched a mushroom production unit in São Cristóvão, Rio de Janeiro — dubbed the "mushroom data center" — capable of producing several tonnes per month in a fully controlled environment.</p>
+        <p>The company began supplying major retail chains including Zona Sul and Grupo Pão de Açúcar with fresh, pesticide-free mushrooms grown year-round in vertical urban farms.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">2022 – 2023 — Venture capital</span>
+      <h3 class="tl-title">Investment rounds & accelerated growth</h3>
+      <div class="tl-body">
+        <p>Between 2022 and 2023, MightyGreens received two investment rounds from Raio Capital totalling approximately R$ 2.32 million, earmarked to structure and consolidate CEA microgreens and mushroom operations.</p>
+        <p>This enabled the company to accelerate capacity expansion, complete onboarding with major retail chains, and develop new modular farm units for clients across Brazil.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">2024 onwards</span>
+      <h3 class="tl-title">CEA technology platform</h3>
+      <div class="tl-body">
+        <p>Today, MightyGreens is recognised as a controlled environment agriculture platform, combining own production with technology, services, and training for urban farms and partner producers.</p>
+        <p>Recent interviews with leadership reinforce the vision of scaling vertical mushroom and microgreens farm models to different regions of Brazil, maintaining a focus on sustainability and operational efficiency.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     INOVAÇÕES
+════════════════════════════════════════════ -->
+<section id="inovacoes">
+  <div class="inner">
+    <p class="section-label">R&D and proprietary technology</p>
+    <h2 class="section-title">MightyGreens Innovations in Controlled Environment Agriculture</h2>
+    <p class="section-intro">MightyGreens combines expertise in data centers, agronomy, product design, and automation to build highly efficient food production systems in controlled environments. Some innovations have been covered in public media and materials; others are the result of internal R&D validated by the founders in commercial operation.</p>
+
+    <!-- Public innovations -->
+    <p class="inov-category">Publicly documented innovations</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Live microgreens in supermarkets</h3>
+        <p>Pioneer in growing and selling living microgreens on mats, allowing the product to reach the consumer still alive — delivering superior freshness and less waste.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>Modular vertical farms in containers</h3>
+        <p>Container-farms for microgreens and mushrooms with full control over climate, lighting, and water, enabling production in densely populated urban areas.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏭</div>
+        <h3>Urban farm "mushroom data center"</h3>
+        <p>The São Cristóvão (RJ) unit with a fully controlled environment ensures continuous, consistent production for major retail chains year-round.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>On-site farm at supermarket</h3>
+        <p>Modular farms installed inside Zona Sul supermarkets bring microgreens and mushroom production right to the shelf, reducing logistics and post-harvest losses.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">♻️</div>
+        <h3>Compostable mushroom packaging</h3>
+        <p>100% compostable packaging made from cellulose and sugarcane bagasse trays, extending shelf life and reducing environmental impact.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h3>Minimal-water microgreens production</h3>
+        <p>CEA microgreens production with a drastic reduction in water usage, delivering meaningful sustainability gains documented in industry publications.</p>
+      </div>
+    </div>
+
+    <!-- Proprietary innovations -->
+    <p class="inov-category">Proprietary innovations — founders' statement</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🧫</div>
+        <h3>Live microgreens & waterless systems</h3>
+        <p>We developed living microgreens systems using special substrates — including edible vegan gel — that drastically reduce water usage and eliminate a large portion of the energy consumed by hydroponic pumping.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚰</div>
+        <h3>Water-harvesting mushroom container</h3>
+        <p>A mushroom container with a water capture and reuse system installed inside a supermarket, reducing water consumption and reinforcing the concept of a low-impact urban farm.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Circular economy mushroom substrate</h3>
+        <p>Developed during the pandemic: a mushroom substrate model based on circular economy principles, converting retail organic waste into new food and closing organic matter cycles.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>Voice-controlled AI mushroom production</h3>
+        <p>A mushroom production control system with a voice and AI interface, allowing operators to adjust controlled-environment parameters using natural language commands.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌫️</div>
+        <h3>Fogponics & germination accelerator</h3>
+        <p>An advanced fogponics system applied to both mushroom production and a microgreens germination accelerator, boosting substrate biological efficiency and speeding up germination.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <h3>Specialized lighting for CEA</h3>
+        <p>Custom lighting solutions tailored to each growth phase of microgreens and mushrooms, optimising energy consumption and cultivation performance.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎁</div>
+        <h3>100% compostable high-performance packaging</h3>
+        <p>100% compostable mushroom packaging that, in our internal tests, significantly extends shelf life, reduces supermarket losses, and preserves sensory quality.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>Automated microgreens seeder</h3>
+        <p>An automated microgreens seeder that dramatically cuts the time and labour cost of the seeding step, standardising seed dosage and distribution at industrial scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TEAM
+════════════════════════════════════════════ -->
+<section id="team">
+  <div class="inner">
+    <p class="section-label">The people behind it</p>
+    <h2 class="section-title">Founders & Key Team</h2>
+    <p class="section-intro">A complementary set of skills — infrastructure architecture, systems engineering, plant science, and hands-on fabrication — built into one founding team.</p>
+
+    <div class="team-grid">
+
+      <!-- Thomas Oberlin -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">TO</div>
+          <div class="team-meta">
+            <div class="team-name">Thomas Oberlin</div>
+            <div class="team-role">Co-Founder · Former Co-CEO</div>
+            <span class="team-tag">Strategy · CEA Architecture</span>
+          </div>
+        </div>
+        <p class="team-bio">Brings strategic vision and CEA leadership informed by a deep background in modular data centers. Consistently positioned as the "data center for plants" architect — translating infrastructure concepts such as modularity, redundancy, and environmental control into highly controlled vertical farming operations, first for microgreens and later expanding into mushrooms. Also founder and president of SmartCube LLC, and a named inventor on patents in the modular and portable data center enclosure space.</p>
+        <a class="team-linkedin" href="https://www.linkedin.com/in/thomassoberlin/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn Profile
+        </a>
+      </div>
+
+      <!-- Rodrigo Surerus Meyer -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">RM</div>
+          <div class="team-meta">
+            <div class="team-name">Rodrigo Surerus Meyer</div>
+            <div class="team-role">Co-Founder · Former Co-CEO</div>
+            <span class="team-tag">Technology · Operations</span>
+          </div>
+        </div>
+        <p class="team-bio">Leads the technology and operations pillar with a systems and IT background that transitioned into CEA execution. Focuses on applying software, IoT, automation, and data analytics to reduce manual labour, optimise yields, and enable remote operation of urban farms. Alongside Thomas Oberlin, he leveraged prior tech experience to build one of South America's first controlled-environment urban farm operations focused on microgreens — owning much of the "how it runs day-to-day" capability.</p>
+        <a class="team-linkedin" href="https://www.linkedin.com/in/rsameyer/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn Profile
+        </a>
+      </div>
+
+      <!-- Glaucio Genuncio -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">GG</div>
+          <div class="team-meta">
+            <div class="team-name">Glaucio da Cruz Genuncio</div>
+            <div class="team-role">Co-Founder · Chief Science Officer</div>
+            <span class="team-tag">Agronomy · Plant Science</span>
+          </div>
+        </div>
+        <p class="team-bio">Provides the scientific and agronomic foundation of the team, with a PhD in plant mineral nutrition and a deep focus on physiology, nutrient management, and cultivation protocols for controlled environments. Early coverage of MightyGreens' microgreens work highlights his role as the technical authority who translated academic know-how into practical, repeatable SOPs — defining growth recipes, nutrition regimes, and handling methods suited to vertical farming constraints. Anchors biological credibility and operational consistency across crops and facilities.</p>
+        <a class="team-linkedin" href="https://www.linkedin.com/in/glaucio-genuncio-97510aa1/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn Profile
+        </a>
+      </div>
+
+      <!-- Eudo Teixeira Junior -->
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar">EJ</div>
+          <div class="team-meta">
+            <div class="team-name">Eudo Teixeira Junior</div>
+            <div class="team-role">Key Employee · Engineering Lead</div>
+            <span class="team-tag">Hardware · Fabrication · Automation</span>
+          </div>
+        </div>
+        <p class="team-bio">The company's hands-on engineering "MacGyver," combining electrical, mechanical, refrigeration, automation, and welding skills to turn farm concepts into working hardware. Central to building and iterating the physical systems behind production — container retrofits, climate control, lighting, automation, and cost-efficient custom adaptations — directly impacting capex discipline, uptime, and throughput. Functions as the prototype-to-production builder who converts design intent into reliable, field-ready infrastructure.</p>
+        <a class="team-linkedin" href="https://www.linkedin.com/in/eudojunior/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn Profile
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <p><strong>MightyGreens</strong> · Urban Farm Modern Horticulture & Technology Ltd. · Rio de Janeiro, Brazil</p>
+</footer>
+
+</body>
+</html>
